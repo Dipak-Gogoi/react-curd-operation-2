@@ -1,10 +1,51 @@
-import React from 'react'
+import React from 'react';
+import { Box, Grid, Typography, Button, makeStyles } from "@material-ui/core";
 
-const TradesBookCard = () => {
+
+const useStyle = makeStyles((theme) => ({
+    wrapper: {
+        border: '1px solid #e8e8e8',
+        cursor: 'pointer',
+        transition: '.3s',
+
+        '&:hover': {
+            boxShadow: '0px 5px 25px rgba(0, 0, 0, 0.1)',
+            borderLeft: '1.5px solid #4D64E4',
+        }
+    },
+    companyName: {
+        fontSize: '13.5px',
+        backgroundColor: theme.palette.primary.main,
+        padding: theme.spacing(0.75),
+        borderRadius: '5px',
+        display: 'inline-block',
+        fontWeight: 600,
+    },
+}));
+
+
+const TradesBookCard = (props) => {
+    const classes = useStyle();
     return (
-        <div>
+        <Box p={2} className={classes.wrapper}>
+            <Grid container alignItems='center'>
+                <Grid item xs>
+                    <Typography variant='subtitle1'>{props.title}</Typography>
+                    <Typography className={classes.companyName} variant='subtitle1'>{props.companyName}</Typography>
+                </Grid>
 
-        </div>
+                <Grid item container direction='column' alignItems='flex-end' xs>
+                    <Grid item>
+                        <Typography variant='caption'>Time min ago </Typography>
+                    </Grid>
+                    <Grid item>
+                        <Box mt={2}>
+                            <Button onClick={props.open} variant='outlined'>View</Button>
+                        </Box>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Box>
     )
 }
 
