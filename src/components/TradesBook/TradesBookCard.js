@@ -16,6 +16,7 @@ const useStyle = makeStyles((theme) => ({
     },
     status: {
         fontSize: '13.5px',
+        color: 'white',
         backgroundColor: theme.palette.primary.main,
         padding: theme.spacing(0.75),
         borderRadius: '5px',
