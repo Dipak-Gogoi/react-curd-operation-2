@@ -111,7 +111,7 @@ const ViewTradesBook = (props) => {
                     <Box className={classes.info} display='flex'>
                         <Typography variant='caption'>Price Unit:</Typography>
                         <Typography variant='body2'>
-                            {props.viewData.priceUnit}
+                            ₹/{props.viewData.priceUnit}
                         </Typography>
                     </Box>
                     <Box className={classes.info} display='flex'>

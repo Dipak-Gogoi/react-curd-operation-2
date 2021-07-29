@@ -17,7 +17,7 @@ function App() {
   const [customSearch, setCustomSearch] = useState(false);
   const [viewData, setViewData] = useState({});
 
-  const fetchJobs = async () => {
+  const fetchData = async () => {
     setCustomSearch(false);
     setLoading(true);
     const req = await firestore
@@ -61,11 +61,11 @@ function App() {
       ...tradesDataDetails,
       postedOn: app.firestore.FieldValue.serverTimestamp(),
     });
-    fetchJobs();
+    fetchData();
   };
 
   useEffect(() => {
-    fetchJobs();
+    fetchData();
   }, []);
 
   const openNewDataModal = () => {
@@ -102,7 +102,7 @@ function App() {
                   <>
                     {customSearch && (
                       <Box my={2} display='flex' justifyContent='flex-end'>
-                        <Button onClick={fetchJobs}>
+                        <Button onClick={fetchData}>
                           <Close seize={20} />
                           Custom Search
                   </Button>
