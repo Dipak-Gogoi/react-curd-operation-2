@@ -15,7 +15,7 @@ const Header = (props) => {
                             color='primary'
                             disableElevation
                         >
-                            Import Info
+                            New Data
                         </Button>
                     </Box>
                 </Grid>

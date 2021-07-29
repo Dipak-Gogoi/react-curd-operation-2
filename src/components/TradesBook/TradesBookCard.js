@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Grid, Typography, Button, makeStyles } from "@material-ui/core";
+import { differenceInHours } from 'date-fns';
 
 
 const useStyle = makeStyles((theme) => ({
@@ -47,7 +48,7 @@ const TradesBookCard = (props) => {
                 </Grid>
                 <Grid item container direction='column' alignItems='flex-end' xs>
                     <Grid item>
-                        <Typography variant='caption'>Time min ago </Typography>
+                        <Typography variant='caption'>{differenceInHours(Date.now(), props.postedOn)} min ago | {props.type} | {props.status}</Typography>
                     </Grid>
                     <Grid item>
                         <Box mt={2}>

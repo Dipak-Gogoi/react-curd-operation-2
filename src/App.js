@@ -30,14 +30,35 @@ function App() {
       id: trades.id,
       postedOn: trades.data().postedOn.toDate(),
     }));
-    console.log(tempTrades);
+    // console.log(tempTrades);
     setTradesData(tempTrades);
     setLoading(false);
   };
 
-  const postTradesData = async (TradesDataDetails) => {
+
+  const searchTradesData = async (tradesData) => {
+    setLoading(true);
+    setCustomSearch(true);
+    const req = await firestore
+      .collection('Trades')
+      .orderBy('postedOn', 'desc')
+      .where('status', '==', tradesData.status)
+      .where('type', '==', tradesData.type)
+      .get();
+    console.log(req);
+    const tempTrades = req.docs.map((trades) => ({
+      ...trades.data(),
+      id: trades.id,
+      postedOn: trades.data().postedOn.toDate(),
+    }));
+    // console.log(tempJobs);
+    setTradesData(tempTrades);
+    setLoading(false);
+  };
+
+  const postTradesData = async (tradesDataDetails) => {
     await firestore.collection('Trades').add({
-      ...TradesDataDetails,
+      ...tradesDataDetails,
       postedOn: app.firestore.FieldValue.serverTimestamp(),
     });
     fetchJobs();
@@ -71,7 +92,7 @@ function App() {
       <Box mb={3}>
         <Grid container justifyContent='center'>
           <Grid item xs={10}>
-            <Search />
+            <Search searchTradesData={searchTradesData} />
             {
               loading ? (
                 <Box display='flex' justifyContent='center'>

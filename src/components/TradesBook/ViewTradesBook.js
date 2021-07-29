@@ -51,7 +51,7 @@ const ViewTradesBook = (props) => {
                     <Box className={classes.info} display='flex'>
                         <Typography variant='caption'>Type:</Typography>
                         <Typography variant='body2'>
-                           {props.viewData.type}
+                            {props.viewData.type}
                         </Typography>
                     </Box>
                     <Box className={classes.info} display='flex'>
@@ -134,6 +134,9 @@ const ViewTradesBook = (props) => {
                     </Box>
                 </Box>
             </DialogContent>
+             <DialogActions>
+                <Button onClick={props.closeModal} variant='outlined'>Close</Button>
+            </DialogActions>
         </Dialog>
     )
 }
