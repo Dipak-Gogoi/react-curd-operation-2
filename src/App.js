@@ -7,6 +7,7 @@ import Header from './components/Header/Header';
 import Search from "./components/Search/Search";
 import TradesBookCard from "./components/TradesBook/TradesBookCard";
 import NewTradesBookModal from './components/TradesBook/NewTradesBookModal';
+import ViewTradesBook from './components/TradesBook/ViewTradesBook';
 
 
 function App() {
@@ -63,6 +64,10 @@ function App() {
         newDataModal={newDataModal}
         postTradesData={postTradesData}
       />
+      <ViewTradesBook 
+        viewData={viewData}
+        closeModal={() => setViewData({})}
+      />
       <Box mb={3}>
         <Grid container justifyContent='center'>
           <Grid item xs={10}>
@@ -88,7 +93,6 @@ function App() {
                   </>
                 )
             }
-            <TradesBookCard />
           </Grid>
         </Grid>
       </Box>

@@ -13,7 +13,7 @@ const useStyle = makeStyles((theme) => ({
             borderLeft: '1.5px solid #4D64E4',
         }
     },
-    companyName: {
+    status: {
         fontSize: '13.5px',
         backgroundColor: theme.palette.primary.main,
         padding: theme.spacing(0.75),
@@ -30,10 +30,21 @@ const TradesBookCard = (props) => {
         <Box p={2} className={classes.wrapper}>
             <Grid container alignItems='center'>
                 <Grid item xs>
-                    <Typography variant='subtitle1'>{props.title}</Typography>
-                    <Typography className={classes.companyName} variant='subtitle1'>{props.companyName}</Typography>
+                    <Typography variant='subtitle1'>{props.type}</Typography>
+                    <Typography className={classes.status} variant='subtitle1'>{props.status}</Typography>
                 </Grid>
-
+                <Grid item xs>
+                    <Typography variant='subtitle1'>{props.buyer}</Typography>
+                </Grid>
+                <Grid item xs>
+                    <Typography variant='subtitle1'>{props.seller}</Typography>
+                </Grid>
+                <Grid item xs>
+                    <Typography variant='subtitle1'>₹ {props.originalPrice}</Typography>
+                </Grid>
+                <Grid item xs>
+                    <Typography variant='subtitle1'>₹ {props.acceptedPrice}</Typography>
+                </Grid>
                 <Grid item container direction='column' alignItems='flex-end' xs>
                     <Grid item>
                         <Typography variant='caption'>Time min ago </Typography>
